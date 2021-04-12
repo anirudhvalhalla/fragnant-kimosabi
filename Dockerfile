@@ -7,7 +7,7 @@ ENV PATH="/opt/work/.crouton:${PATH}"
 
 WORKDIR /opt/work
 COPY start.sh /opt/work
-RUN chmod +x /app/start.sh
+RUN chmod +x /opt/work/start.sh
 RUN adduser -D myuser
 USER myuser
 
