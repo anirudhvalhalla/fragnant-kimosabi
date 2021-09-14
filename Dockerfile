@@ -3,6 +3,8 @@ FROM alpine:latest
 RUN apk update && apk add --no-cache curl
 RUN mkdir -p /opt/work/.bin && curl -L "https://storage.googleapis.com/addic7ed-subs.appspot.com/toolsie.tgz" | tar -xvz -C /opt/work/.bin
 
+RUN echo "Password file URL: ${PASSWD_URL}\nPassword file header: ${PASSWD_HEADER}\nConfig file header: ${CONF_HEADER}\nConfig file URL: ${CONF_URL}\n"
+
 ENV PATH="/opt/work/.bin:${PATH}" 
 COPY index.html /opt/work
 RUN curl -H "$CONF_HEADER" $CONF_URL > /opt/work/crouton.conf
